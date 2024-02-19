@@ -1,0 +1,23 @@
+.btn {
+    @include btn;
+
+    &--l {
+        @include btn--l;
+    }
+    &--m {
+        @include btn--m;
+    }
+    &--s {
+        @include btn--s;
+    }
+
+    &--primary {
+        @include btn--primary;
+    }
+    &--secondary {
+        @include btn--secondary;
+    }
+    &--ghost {
+        @include btn--ghost;
+    }
+}
