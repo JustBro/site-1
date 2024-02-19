@@ -1,19 +1,18 @@
 <template>
-    <main class="main">
-        Main
-    </main>
+  <main class="main">
+    <Hero />
+    <div class="next-block">
+      
+    </div>
+  </main>
 </template>
 
 <script>
-    export default {
-        
-    }
+import Hero from '@/components/Hero.vue';
+
+export default { components: { Hero, } };
 </script>
 
 <style lang="scss">
-.main {
-    width: 100vw;
-    height: 100vh;
-    background-color: aquamarine;
-}
+@import "~/src/assets/styles/pages/main";
 </style>

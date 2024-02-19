@@ -1,0 +1,30 @@
+@keyframes animation {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0%) scale(100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(71%) scale(130%);
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    transform: translateY(-200%);
+  }
+  100% {
+    gap: 14px;
+    transform: translateY(200%);
+  }
+}
+
+@keyframes letterAnimation {
+  0% {
+    transform: scaleY(240%) scaleX(130%);
+  }
+  100% {
+    transform: scaleY(100%) scaleX(100%);
+    font-size: 40px;
+  }
+}

@@ -6,12 +6,6 @@
       <router-link to="/main">Main</router-link>
       <br />
       <br />
-      <router-link to="/about">About</router-link>
-      <br />
-      <br />
-      <router-link to="/ui-kit">UI Kit</router-link>
-      <br />
-      <br />
     </nav>
     <router-view />
     <footer>Footer</footer>
@@ -22,4 +16,6 @@
 export default {};
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "~/src/assets/styles/base/base";
+</style>
