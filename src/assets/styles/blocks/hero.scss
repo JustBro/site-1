@@ -1,9 +1,10 @@
+@import "~/src/assets/styles/base/variables";
+
 .hero {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 100dvh;
-  background-color: black;
 
   view-timeline: --view block -10% 100%;
 
@@ -21,9 +22,15 @@
   }
 
   &__name {
+    position: absolute;
+    bottom: 24px;
     display: flex;
+    justify-content: center;
     gap: 24px;
-    
+    width: 100%;
+    color: $typography-invert;
+    font-size: 20px;
+    font-weight: 900;
 
     animation-timeline: --next-block;
     // animation-name: textAnimation;
@@ -31,20 +38,15 @@
     animation-timing-function: linear;
   }
 
-  &__letter {
-    display: block;
-    transform: scaleY(150%) scaleX(110%);
-    color: rgb(217, 214, 204);
-    font-size: 150px;
-    font-weight: 900;
+  &__word {
+    display: flex;
+    width: 100%;
+  }
 
+  &__letter {
     animation-timeline: --next-block;
     // animation-name: letterAnimation;
     animation-fill-mode: both;
     animation-timing-function: linear;
-
-    &--space {
-      padding-right: 50px;
-    }
   }
 }

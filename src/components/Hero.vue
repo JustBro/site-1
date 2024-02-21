@@ -6,7 +6,7 @@
         <span v-for="letter in name[0]">{{ letter }}</span>
       </div>
       <div class="hero__word">
-        <span v-for="letter in name[1]">{{ letter }}</span>
+        <span class="hero__letter" v-for="letter in name[1]">{{ letter }}</span>
       </div>
     </div>
   </div>
