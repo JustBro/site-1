@@ -15,9 +15,36 @@
     height: 110%;
   
     animation-timeline: --view;
-  
     animation-name: animation;
     animation-fill-mode: both;
     animation-timing-function: linear;
+  }
+
+  &__name {
+    display: flex;
+    gap: 24px;
+    
+
+    animation-timeline: --next-block;
+    // animation-name: textAnimation;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+  }
+
+  &__letter {
+    display: block;
+    transform: scaleY(150%) scaleX(110%);
+    color: rgb(217, 214, 204);
+    font-size: 150px;
+    font-weight: 900;
+
+    animation-timeline: --next-block;
+    // animation-name: letterAnimation;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+
+    &--space {
+      padding-right: 50px;
+    }
   }
 }
