@@ -3,10 +3,10 @@
     <img class="hero__img" src="../assets/images/img.jpg" alt="" />
     <div class="hero__name">
       <div class="hero__word">
-        <span v-for="letter, i in name[0]" :key="i">{{ letter }}</span>
+        <span v-for="letter in name[0]" :key="letter">{{ letter }}</span>
       </div>
       <div class="hero__word">
-        <span class="hero__letter" v-for="letter, i in name[1]" :key="i">{{ letter }}</span>
+        <span class="hero__letter" v-for="letter in name[1]" :key="letter">{{ letter }}</span>
       </div>
     </div>
   </div>
@@ -23,5 +23,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/src/assets/styles/blocks/hero";
+@import "~/assets/styles/blocks/hero";
 </style>
