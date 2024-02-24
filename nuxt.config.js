@@ -72,7 +72,7 @@ module.exports = {
   modules: ["@nuxtjs/style-resources"],
   styleResources: {
     scss: [
-      // "~assets/styles/base/fonts.scss",
+      "~assets/styles/base/fonts.scss",
       "~assets/styles/base/variables.scss",
       "~assets/styles/base/mixins.scss",
       "~assets/styles/base/icons.scss",

@@ -1,4 +1,4 @@
-@keyframes animation {
+@keyframes heroImg {
   0% {
     opacity: 1;
     transform: translateX(-50%) translateY(0%) scale(100%);
@@ -9,22 +9,35 @@
   }
 }
 
-@keyframes textAnimation {
+@keyframes heroName {
   0% {
-    transform: translateY(-200%);
+    transform: translateY(0);
+    font-size: 224px;
   }
   100% {
-    gap: 14px;
-    transform: translateY(200%);
+    transform: translateY(166%);
+    font-size: 40px;
   }
 }
 
-@keyframes letterAnimation {
+@keyframes hero {
   0% {
-    transform: scaleY(240%) scaleX(130%);
+    scale: 120%;
+    opacity: 0;
   }
   100% {
-    transform: scaleY(100%) scaleX(100%);
-    font-size: 40px;
+  scale: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes heroLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(48%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
 }

@@ -1,7 +1,10 @@
-header,
-footer {
-  // display: none;
+body:has(.main) {
+  header,
+  footer {
+    display: none;
+  }
 }
+
 .main {
   min-height: 300vh;
 }

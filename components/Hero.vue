@@ -1,15 +1,29 @@
 <template>
-  <div class="hero">
+  <section class="hero">
     <img class="hero__img" src="../assets/images/img.jpg" alt="" />
     <div class="hero__name">
       <div class="hero__word">
-        <span v-for="letter in name[0]" :key="letter">{{ letter }}</span>
+        <span
+          class="hero__letter"
+          v-for="(letter, i) in name[0]"
+          :key="letter"
+          :style="'animation-delay:' + ((name[0].length - i) * 40) + 'ms;'"
+        >
+          {{ letter }}
+        </span>
       </div>
       <div class="hero__word">
-        <span class="hero__letter" v-for="letter in name[1]" :key="letter">{{ letter }}</span>
+        <span
+          class="hero__letter"
+          v-for="letter, i in name[1]"
+          :key="letter"
+          :style="'animation-delay:' + (i * 40) + 'ms;'"
+        >
+          {{ letter }}
+        </span>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

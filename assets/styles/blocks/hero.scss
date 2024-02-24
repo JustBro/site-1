@@ -3,8 +3,9 @@
   overflow: hidden;
   width: 100%;
   height: 100dvh;
-
-  view-timeline: --view block -10% 100%;
+  background-color: $bg-black;
+  animation: hero 1.3s cubic-bezier(.56,.2,.4,1.05) 0ms forwards;
+  view-timeline: --hero block -10% 100%;
 
   &__img {
     position: absolute;
@@ -13,38 +14,39 @@
     transform: translateX(-50%);
     height: 110%;
   
-    animation-timeline: --view;
-    animation-name: animation;
+    animation-timeline: --hero;
+    animation-name: heroImg;
     animation-fill-mode: both;
     animation-timing-function: linear;
   }
 
   &__name {
     position: absolute;
-    bottom: 24px;
+    bottom: 30px;
+    left: -16px;
     display: flex;
     justify-content: center;
-    gap: 24px;
+    gap: 40px;
+    overflow: hidden;
     width: 100%;
+    padding-bottom: 30px;
     color: $typography-invert;
-    font-size: 20px;
     font-weight: 900;
 
-    animation-timeline: --next-block;
-    // animation-name: textAnimation;
+    animation-timeline: --hero;
+    animation-name: heroName;
     animation-fill-mode: both;
     animation-timing-function: linear;
   }
-
+  
   &__word {
     display: flex;
-    width: 100%;
+    transform: translateX(20px) scaleY(180%);
   }
 
   &__letter {
-    animation-timeline: --next-block;
-    // animation-name: letterAnimation;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
+    opacity: 0;
+    transform: translateY(48%);
+    animation: heroLetter 1s cubic-bezier(.56,.2,.4,1.05) 0ms forwards;
   }
 }
