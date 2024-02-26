@@ -40,4 +40,14 @@
     opacity: 1;
     transform: translateY(0%);
   }
+
+}
+
+@keyframes quoteLine {
+  0% {
+    width: calc(50% - 16px);
+  }
+  100% {
+    width: 0;
+  }
 }

@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: $bg-black;
+  background-color: $bg-primary;
   font-family: $font-primary;
   font-size: $font-size;
   font-weight: $font-weight;
@@ -23,4 +23,9 @@ body {
   line-height: $line-height;
   letter-spacing: $letter-spacing;
   color: $typography-primary;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1920px;
 }

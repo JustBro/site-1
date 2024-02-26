@@ -1,0 +1,63 @@
+.quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 100dvh;
+  view-timeline: --quote block 100% 50%;
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px;
+    border-bottom: 1px solid $theme-border;
+    border-top: 1px solid $theme-border;
+    font-size: 90px;
+    line-height: 76px;
+    font-weight: 800;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: 0;
+      width: calc(50% - 16px);
+      height: 2px;
+      background-color: $bg-primary;
+      @include transition;
+    }
+    &::before {
+      left: 0;
+      transform: rotate(180deg);
+    }
+
+    &.show {
+      &::after,
+      &::before {
+        width: 0;
+      }
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    padding: 0 16px;
+    background-color: $bg-primary;
+  }
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $font-secondary;
+    font-size: 22px;
+
+    &--small {
+      font-size: 16px;
+    }
+  }
+}

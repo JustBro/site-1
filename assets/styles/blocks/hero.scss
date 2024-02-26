@@ -4,7 +4,7 @@
   width: 100%;
   height: 100dvh;
   background-color: $bg-black;
-  animation: hero 1.3s cubic-bezier(.56,.2,.4,1.05) 0ms forwards;
+  animation: hero 1.3s cubic-bezier(0.56, 0.2, 0.4, 1.05) 0ms forwards;
   view-timeline: --hero block -10% 100%;
 
   &__img {
@@ -13,7 +13,7 @@
     left: 50%;
     transform: translateX(-50%);
     height: 110%;
-  
+
     animation-timeline: --hero;
     animation-name: heroImg;
     animation-fill-mode: both;
@@ -38,7 +38,7 @@
     animation-fill-mode: both;
     animation-timing-function: linear;
   }
-  
+
   &__word {
     display: flex;
     transform: translateX(20px) scaleY(180%);
@@ -47,6 +47,6 @@
   &__letter {
     opacity: 0;
     transform: translateY(48%);
-    animation: heroLetter 1s cubic-bezier(.56,.2,.4,1.05) 0ms forwards;
+    animation: heroLetter 1s cubic-bezier(0.56, 0.2, 0.4, 1.05) 0ms forwards;
   }
 }

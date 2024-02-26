@@ -1,7 +1,11 @@
 .icon {
     display: block;
+    width: 24px;
+    height: 24px;
     background-color: currentColor;
     transition: color 0.2s ease-in-out 0s;
+    color: $icon-normal;
+
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -9,8 +13,12 @@
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 
-  &--name {
-    // mask-image: url(~assets/images/svg/name.svg);
-    // -webkit-mask-image: url(~assets/images/svg/name.svg);
+  &--close {
+    mask-image: url(~assets/images/svg/close.svg);
+    -webkit-mask-image: url(~assets/images/svg/close.svg);
+  }
+  &--quotes {
+    mask-image: url(~assets/images/svg/quotes.svg);
+    -webkit-mask-image: url(~assets/images/svg/quotes.svg);
   }
 }

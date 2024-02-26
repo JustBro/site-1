@@ -1,15 +1,16 @@
 <template>
   <main class="main">
     <Hero />
-    <div class="next-block"></div>
+    <Quote />
   </main>
 </template>
 
 <script>
-import Hero from "@/components/Hero.vue";
+import Hero from "@/components/Hero";
+import Quote from "@/components/Quote";
 
 export default {
-  components: { Hero },
+  components: { Hero, Quote },
 };
 </script>
 
