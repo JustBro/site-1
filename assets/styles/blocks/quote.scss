@@ -24,30 +24,51 @@
       content: "";
       position: absolute;
       top: -1px;
-      right: 0;
-      width: calc(50% - 16px);
+      right: 50%;
+      width: 50%;
       height: 2px;
       background-color: $bg-primary;
       @include transition;
+      transition-duration: 0.5s;
     }
     &::before {
-      left: 0;
-      transform: rotate(180deg);
+      left: 50%;
     }
 
-    &.show {
+    &.animate {
       &::after,
       &::before {
         width: 0;
       }
+
+      .quote {
+        &__string {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+        &__icon {
+          transform: translateY(-50%) scale(1);
+          opacity: 1;
+        }
+      }
     }
+  }
+  &__string {
+    transform: translateY(70%);
+    opacity: 0;
+    @include transition;
+    transition-duration: 0.4s;
   }
   &__icon {
     position: absolute;
+    z-index: 1;
     top: 0;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scale(1.5);
     padding: 0 16px;
+    opacity: 0;
     background-color: $bg-primary;
+    @include transition;
+    transition-duration: 0.5s;
   }
   &__author {
     display: flex;

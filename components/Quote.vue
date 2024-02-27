@@ -1,12 +1,12 @@
 <template>
-  <section class="quote">
-    <div ref="wrapper" class="quote__wrapper" :class="{ show: wrapperVisible }">
+  <section ref="quote" class="quote">
+    <div ref="wrapper" class="quote__wrapper">
       <div class="quote__icon">
         <i class="icon icon--quotes"></i>
       </div>
-      <span>MUSIC, POETRY, AND</span>
-      <span>OBSERVATIONS AIMED</span>
-      <span>DIRECTLY AT YOUR SOUL</span>
+      <span class="quote__string">MUSIC, POETRY, AND</span>
+      <span class="quote__string">OBSERVATIONS AIMED</span>
+      <span class="quote__string">DIRECTLY AT YOUR SOUL</span>
     </div>
     <div class="quote__author">
       <span>Melissa Clarke</span>
@@ -18,22 +18,32 @@
 <script>
 export default {
   data() {
-    return {
-      wrapperVisible: false,
-    };
+    return {};
+  },
+  methods: {
+    viewportTracking(el, changeEl = el, percent, className) {
+      return () => {
+        const positionY = el.getBoundingClientRect().y;
+        const classList = changeEl.classList;
+        const viewportHeight = window.innerHeight;
+        const positionInViewport = (1 - positionY / viewportHeight) * 100;
+
+        if (positionInViewport > percent && !classList.contains(className)) {
+          classList.add(className);
+        } else if (
+          positionInViewport < percent &&
+          classList.contains(className)
+        ) {
+          classList.remove(className);
+        }
+      };
+    },
   },
   mounted() {
-    document.addEventListener("scroll", () => {
-      const wrapperVisibility = this.$refs.wrapper.checkVisibility();
-
-      console.log(wrapperVisibility); // не то, checkVisibility() определяет display и opacity
-
-      if (wrapperVisibility && !this.wrapperVisible) {
-        this.wrapperVisible == true;
-      } else if (!wrapperVisibility && this.wrapperVisible) {
-        this.wrapperVisible == false;
-      }
-    });
+    document.addEventListener(
+      "scroll",
+      this.viewportTracking(this.$refs.quote, this.$refs.wrapper, 50, "animate")
+    );
   },
 };
 </script>

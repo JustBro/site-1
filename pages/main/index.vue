@@ -2,6 +2,7 @@
   <main class="main">
     <Hero />
     <Quote />
+    <div class="space"></div>
   </main>
 </template>
 
@@ -16,4 +17,8 @@ export default {
 
 <style lang="scss">
 @import "~/assets/styles/pages/main";
+
+.space {
+  height: 300vh;
+}
 </style>
