@@ -12,6 +12,7 @@ $typography-accent: rgba(246,136,115,1);
 
 $bg-black: rgb(0, 0, 0); //*
 $bg-primary: rgb(217, 214, 204); //*
+$bg-light: rgba(217, 214, 204, 0.3); //*
 $bg-secondary: rgba(0,61,89,0.040);
 $bg-invert: rgba(0,61,89,1);
 $bg-overlay: rgba(0,61,89,0.800);
@@ -39,11 +40,8 @@ $input-border-hover: rgba(0,61,89,0.200);
 $input-border-disable: rgba(0,61,89,0.040);
 $input-border-error: rgba(240,124,124,0.560);
 
-$btn-text-dark: rgba(0,61,89,1);
-$btn-text-white: rgba(255,255,255,1);
-$btn-text-accent: rgba(246,136,115,1);
-$btn-text-disabled: rgba(212,213,216,1);
-$btn-primary-normal: rgba(246,136,115,1);
+$btn-text-normal: rgb(81, 77, 70); // *
+$btn-primary-normal: rgb(196, 191, 177); // *
 $btn-primary-hover: rgba(246,136,115,0.800);
 $btn-primary-disable: rgba(249,249,249,1);
 $btn-primary-active: rgba(246,136,115,1);

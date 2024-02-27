@@ -16,33 +16,16 @@
 </template>
 
 <script>
+import { viewportTracking } from "@/assets/scripts/myLib";
+
 export default {
   data() {
     return {};
   },
-  methods: {
-    viewportTracking(el, changeEl = el, percent, className) {
-      return () => {
-        const positionY = el.getBoundingClientRect().y;
-        const classList = changeEl.classList;
-        const viewportHeight = window.innerHeight;
-        const positionInViewport = (1 - positionY / viewportHeight) * 100;
-
-        if (positionInViewport > percent && !classList.contains(className)) {
-          classList.add(className);
-        } else if (
-          positionInViewport < percent &&
-          classList.contains(className)
-        ) {
-          classList.remove(className);
-        }
-      };
-    },
-  },
   mounted() {
     document.addEventListener(
       "scroll",
-      this.viewportTracking(this.$refs.quote, this.$refs.wrapper, 50, "animate")
+      viewportTracking(this.$refs.quote, this.$refs.wrapper, 50, "animate")
     );
   },
 };

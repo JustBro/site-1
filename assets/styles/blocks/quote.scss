@@ -44,18 +44,18 @@
       .quote {
         &__string {
           transform: translateY(0%);
-          opacity: 1;
+          filter: opacity(1);
         }
         &__icon {
           transform: translateY(-50%) scale(1);
-          opacity: 1;
+          filter: opacity(1);
         }
       }
     }
   }
   &__string {
     transform: translateY(70%);
-    opacity: 0;
+    filter: opacity(0);
     @include transition;
     transition-duration: 0.4s;
   }
@@ -65,7 +65,7 @@
     top: 0;
     transform: translateY(-50%) scale(1.5);
     padding: 0 16px;
-    opacity: 0;
+    filter: opacity(0);
     background-color: $bg-primary;
     @include transition;
     transition-duration: 0.5s;

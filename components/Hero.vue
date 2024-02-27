@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <img class="hero__img" src="../assets/images/img.jpg" alt="" />
-    <div class="hero__name">
+    <h1 class="hero__name">
       <div class="hero__word">
         <span
           class="hero__letter"
@@ -22,7 +22,7 @@
           {{ letter }}
         </span>
       </div>
-    </div>
+    </h1>
   </section>
 </template>
 

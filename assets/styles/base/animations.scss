@@ -1,10 +1,10 @@
 @keyframes heroImg {
   0% {
-    opacity: 1;
+    filter: opacity(1);
     transform: translateX(-50%) translateY(0%) scale(100%);
   }
   100% {
-    opacity: 0;
+    filter: opacity(0);
     transform: translateX(-50%) translateY(71%) scale(130%);
   }
 }
@@ -23,22 +23,32 @@
 @keyframes hero {
   0% {
     scale: 120%;
-    opacity: 0;
+    filter: opacity(0);
   }
   100% {
   scale: 100%;
-    opacity: 1;
+    filter: opacity(1);
   }
 }
 
 @keyframes heroLetter {
   0% {
-    opacity: 0;
+    filter: opacity(0);
     transform: translateY(48%);
   }
   100% {
-    opacity: 1;
+    filter: opacity(1);
     transform: translateY(0%);
   }
 
+}
+
+@keyframes showVideo {
+  0% {
+    position: fixed;
+  }
+  100% {
+    position: fixed;
+    display: none;
+  }
 }
