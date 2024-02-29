@@ -4,8 +4,8 @@
     transform: translateX(-50%) translateY(0%) scale(100%);
   }
   100% {
-    filter: opacity(0);
-    transform: translateX(-50%) translateY(71%) scale(130%);
+    filter: opacity(0.2);
+    transform: translateX(-50%) translateY(60%) scale(130%);
   }
 }
 
@@ -26,7 +26,7 @@
     filter: opacity(0);
   }
   100% {
-  scale: 100%;
+    scale: 100%;
     filter: opacity(1);
   }
 }
@@ -40,7 +40,6 @@
     filter: opacity(1);
     transform: translateY(0%);
   }
-
 }
 
 @keyframes showVideo {
@@ -55,10 +54,12 @@
 
 @keyframes upcomingTitle {
   0% {
+    font-size: 160px;
     filter: opacity(1);
     transform: translateZ(0px);
   }
   100% {
+    font-size: 10px;
     filter: opacity(0);
     transform: translateZ(-100px);
   }

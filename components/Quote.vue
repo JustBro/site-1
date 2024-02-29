@@ -25,7 +25,7 @@ export default {
   mounted() {
     document.addEventListener(
       "scroll",
-      viewportTracking(this.$refs.quote, this.$refs.wrapper, 50, "animate")
+      viewportTracking(this.$refs.quote, this.$refs.wrapper, 58, "animate")
     );
   },
 };

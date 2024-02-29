@@ -8,7 +8,7 @@
   padding-top: 64px;
   background-color: $bg-primary;
   perspective: 100px;
-  view-timeline: --upcoming block 100% -5%;
+  view-timeline: --upcoming block 100%;
 
   &::after {
     content: "";
@@ -27,6 +27,7 @@
 
     animation-timeline: --upcoming;
     animation-name: upcomingTitle;
+    animation-fill-mode: forwards;
   }
   &__shows {
     display: flex;

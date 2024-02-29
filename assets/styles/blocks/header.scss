@@ -1,0 +1,39 @@
+.header {
+    &__logo {
+        position: fixed;
+        z-index: 10;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        padding: 12px;
+        background-color: $bg-dark;
+        color: $typography-invert;
+        font-size: 34px;
+        font-weight: 800;
+    }
+    &__nav {
+        position: fixed;
+        z-index: 10;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 104px;
+        height: 48px;
+        background-color: $bg-dark;
+        
+        &::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $typography-invert;
+        }
+    }
+    &.show {
+        
+    }
+}
