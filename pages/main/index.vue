@@ -3,6 +3,7 @@
     <Hero />
     <Quote />
     <Show />
+    <Upcoming />
     <div class="space"></div>
   </main>
 </template>
@@ -11,9 +12,15 @@
 import Hero from "@/components/Hero";
 import Quote from "@/components/Quote";
 import Show from "@/components/Show";
+import Upcoming from "@/components/Upcoming";
 
 export default {
-  components: { Hero, Quote, Show },
+  components: {
+    Hero,
+    Quote,
+    Show,
+    Upcoming,
+  },
 };
 </script>
 

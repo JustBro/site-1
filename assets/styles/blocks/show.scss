@@ -54,7 +54,6 @@
     }
   }
   &__btn {
-    @include btn;
     padding: 20px 40px;
     background-color: $btn-primary-normal;
     color: $btn-text-normal;
