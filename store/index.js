@@ -1,18 +1,15 @@
-import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
-
-const store = () => new Vuex.Store({
-    state: {
-        showHeader: false,
-    },
-
-    mutations: {
-        setHeaderState(state) {
-            state.showHeader
-        }
-    }
+export const state = () => ({
+  showHeader: false,
 });
 
-export default store;
+export const mutations = {
+  setHeaderState(state, show) {
+    state.showHeader = show;
+  },
+};
+
+export const getters = {
+  getHeaderState(store) {
+    return store.showHeader;
+  },
+};

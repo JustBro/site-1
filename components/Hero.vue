@@ -6,7 +6,7 @@
         <span
           class="hero__letter"
           v-for="(letter, i) in name[0]"
-          :key="letter"
+          :key="i"
           :style="'animation-delay:' + (name[0].length - i) * 40 + 'ms;'"
         >
           {{ letter }}
@@ -16,7 +16,7 @@
         <span
           class="hero__letter"
           v-for="(letter, i) in name[1]"
-          :key="letter"
+          :key="i"
           :style="'animation-delay:' + i * 40 + 'ms;'"
         >
           {{ letter }}
@@ -31,24 +31,23 @@ export default {
   data() {
     return {
       name: ["JEFFREY", "MARTIN"],
-      showHeader: false,
     };
   },
   methods: {
     checkPosition() {
       const isHeroHigh =
         this.$refs.hero.getBoundingClientRect().y < -(window.innerHeight / 2);
-    
-      if (isHeroHigh && !this.showHeader) {
-        this.showHeader = isHeroHigh;
-        this.$emit("showHeader", isHeroHigh);
-      } else if (!isHeroHigh && !this.showHeader) {
-        this.showHeader = isHeroHigh;
-        this.$emit("showHeader", isHeroHigh);
+      const headerState = this.$store.getters.getHeaderState;
+
+      if (isHeroHigh && !headerState) {
+        this.$store.commit("setHeaderState", true);
+      } else if (!isHeroHigh && headerState) {
+        this.$store.commit("setHeaderState", false);
       }
     },
   },
   mounted() {
+    // this.checkPosition();
     document.addEventListener("scroll", this.checkPosition);
   },
 };
