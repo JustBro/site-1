@@ -35,7 +35,6 @@
     height: 0;
     background-color: $bg-dark;
     @include transition;
-    cursor: pointer;
 
     &::after {
       content: "";

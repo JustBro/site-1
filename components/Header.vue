@@ -1,12 +1,9 @@
 <template>
   <header class="header">
-    <span :class="{ expand: $store.getters.getHeaderState }" class="header__logo">
+    <span :class="{ expand: this.$store.getters.getHeaderState }" class="header__logo">
       JEFFREY MARTIN
     </span>
-    <nav
-      :class="{ expand: $store.getters.getHeaderState }"
-      class="header__nav"
-    ></nav>
+    <button :class="{ expand: this.$store.getters.getHeaderState }" class="header__nav"></button>
   </header>
 </template>
 

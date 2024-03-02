@@ -35,19 +35,19 @@ export default {
   },
   methods: {
     checkPosition() {
-      const isHeroHigh =
+      const high =
         this.$refs.hero.getBoundingClientRect().y < -(window.innerHeight / 2);
       const headerState = this.$store.getters.getHeaderState;
 
-      if (isHeroHigh && !headerState) {
+      if (high && !headerState) {
         this.$store.commit("setHeaderState", true);
-      } else if (!isHeroHigh && headerState) {
+      } else if (!high && headerState) {
         this.$store.commit("setHeaderState", false);
       }
     },
   },
   mounted() {
-    // this.checkPosition();
+    this.checkPosition();
     document.addEventListener("scroll", this.checkPosition);
   },
 };
