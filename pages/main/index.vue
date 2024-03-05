@@ -2,7 +2,7 @@
   <main class="main">
     <Hero />
     <Quote />
-    <Show />
+    <Show @showUpcoming="showUpcoming" />
     <Upcoming />
     <div class="space"></div>
   </main>
@@ -21,12 +21,19 @@ export default {
     Show,
     Upcoming,
   },
+  methods: {
+    showUpcoming() {
+      const upcoming = document.querySelector(".upcoming");
+      upcoming.setAttribute("style", "height:" + upcoming.scrollHeight + "px;");
+      upcoming.scrollIntoView({ behavior: 'smooth' });
+      this.isUpcoming = true;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 @import "~/assets/styles/pages/main";
-
 .space {
   position: relative;
   z-index: 1;

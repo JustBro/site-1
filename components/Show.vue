@@ -10,7 +10,7 @@
         <span>Purple Fiddle</span>
       </div>
       <div ref="line" class="show__line"></div>
-      <button class="show__btn">view all dates</button>
+      <button class="show__btn" @click="$emit('showUpcoming')">view all dates</button>
     </div>
   </section>
 </template>
