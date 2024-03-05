@@ -2,18 +2,22 @@
   <li class="shows-item">
     <div ref="item" class="shows-item__wrapper">
       <div class="shows-item__text">
-        <h3 class="shows-item__title">THOMAS, WV</h3>
-        <span class="shows-item__desctiption">
-          Wednesday, April 3, 2024 - Purple Fiddle
-        </span>
+        <h3 class="shows-item__title">{{ show.name }}</h3>
+        <span class="shows-item__desctiption">{{ show.description }}</span>
       </div>
-      <a class="shows-item__link">TICKETS</a>
+      <a :href="show.link" target="_blank" class="shows-item__link">TICKETS</a>
     </div>
   </li>
 </template>
 
 <script>
 export default {
+  props: {
+    show: {
+      type: Object,
+      default: {},
+    },
+  },
   methods: {
     viewportTracking(el, changeEl = el, percent, className) {
       return () => {
@@ -46,7 +50,7 @@ export default {
         if (positionInViewport <= 120 && positionInViewport >= 1) {
           rotate =
             "transform: rotateX(" +
-            (-4 + (positionInViewport * 4) /120) +
+            (-4 + (positionInViewport * 4) / 120) +
             "deg);";
         }
         if (positionInViewport <= 120 && positionInViewport >= 1) {

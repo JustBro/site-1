@@ -2,9 +2,14 @@
   <section ref="upcoming" class="upcoming">
     <h2 class="upcoming__title">UPCOMING SHOWS</h2>
     <ul class="upcoming__shows">
-      <ShowsItem v-for="i in 5" :key="i" />
+      <ShowsItem v-for="show in shows" :key="show.description" :show="show" />
     </ul>
-    <button ref="btn" @click="close" :class="{ expand: show }" class="upcoming__btn">
+    <button
+      ref="btn"
+      @click="close"
+      :class="{ expand: show }"
+      class="upcoming__btn"
+    >
       HIDE DATES
     </button>
   </section>
@@ -18,6 +23,78 @@ export default {
     return {
       show: false,
       fix: false,
+      shows: [
+        {
+          name: "THOMAS, WV",
+          description: "Wednesday, April 3, 2024 - Purple Fiddle",
+          link: "https://www.songkick.com/concerts/41333956-jeffrey-martin-at-purple-fiddle?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "HAGERSTOWN, MD",
+          description: "Thursday, April 4, 2024 - hub city vinyl",
+          link: "https://www.songkick.com/concerts/41644445-jeffrey-martin-at-hub-city-vinyl?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "WASHINGTON, DC",
+          description: "Friday, April 5, 2024 - Pie Shop",
+          link: "https://www.songkick.com/concerts/41333964-jeffrey-martin-at-pie-shop?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "PHILADELPHIA, PA",
+          description: "Saturday, April 6, 2024 - World Cafe Live",
+          link: "https://www.songkick.com/concerts/41333972-jeffrey-martin-at-world-cafe-live?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "BROOKLYN, NY",
+          description: "Sunday, April 7, 2024 - The Sultan Room",
+          link: "https://www.songkick.com/concerts/41333978-jeffrey-martin-at-sultan-room?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "MARCELLUS, NY",
+          description: "Monday, April 8, 2024 - Riseform Brewing Company",
+          link: "https://www.eventbrite.com/e/jeffrey-martin-tickets-800361762577?utm_experiment=test_share_listing&aff=ebdsshios",
+        },
+        {
+          name: "CAMBRIDGE, MA",
+          description: "Wednesday, April 10, 2024 - Club Passim",
+          link: "https://www.songkick.com/concerts/41333986-jeffrey-martin-at-club-passim?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "AMHERST, MA",
+          description: "Friday, April 12, 2024 - The Drake",
+          link: "https://www.songkick.com/concerts/41333997-jeffrey-martin-at-drake?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "EXETER, NH",
+          description: "Saturday, April 13, 2024 - The Word Barn",
+          link: "https://www.songkick.com/concerts/41334002-jeffrey-martin-at-word-barn?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "SOUTH BURLINGTON, VT",
+          description: "Tuesday, April 16, 2024 - Higher Ground",
+          link: "https://www.songkick.com/concerts/41334010-jeffrey-martin-at-higher-ground?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "GALWAY, NY",
+          description: "Wednesday, April 17, 2024 - Cock N'Bull",
+          link: "https://www.songkick.com/concerts/41334012-jeffrey-martin-at-cock-nbull?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "PROVIDENCE, RI",
+          description: "Thursday, April 18, 2024 - Fête Lounge",
+          link: "https://www.songkick.com/concerts/41334017-jeffrey-martin-at-fete-lounge?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+        {
+          name: "KILKENNY, IRELAND",
+          description: "Friday, May 3, 2024 - Kilkenny Roots Festival",
+          link: "https://kilkennyroots.com/booking/jeffrey-martin/",
+        },
+        {
+          name: "MINNEAPOLIS, MN",
+          description: "Thursday, May 9, 2024 - 7th Street Entry",
+          link: "https://www.songkick.com/concerts/41334025-jeffrey-martin-at-7th-street-entry?utm_source=11593&utm_medium=partner&utm_campaign=ticket-link&utm_content=382006",
+        },
+      ],
     };
   },
   components: {
@@ -53,9 +130,9 @@ export default {
     close() {
       const show = document.querySelector(".show");
       const upcoming = this.$refs.upcoming;
-      show.scrollIntoView({ behavior: 'smooth' });
-      upcoming.setAttribute("style", "height: 0;")
-    }
+      show.scrollIntoView({ behavior: "smooth" });
+      upcoming.setAttribute("style", "height: 0;");
+    },
   },
   mounted() {
     this.canShow();
