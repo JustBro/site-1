@@ -12,3 +12,7 @@
   cursor: pointer;
   @include transition;
 }
+
+@mixin font-transform() {
+  transform: scaleY($font-scale);
+}

@@ -1,0 +1,214 @@
+.album {
+  position: relative;
+  z-index: 1;
+  height: 100dvh;
+  background-color: $bg-album;
+  color: $typography-invert;
+
+  &__wrapper {
+    position: relative;
+    left: 170px;
+  }
+  &__title {
+    position: absolute;
+    top: 190px;
+    left: -2px;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-size: 76px;
+    line-height: 60px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    @include font-transform;
+  }
+  &__list {
+    position: absolute;
+    top: 380px;
+    left: 0;
+    width: 474px;
+    filter: opacity(0.76);
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-style: italic;
+  }
+  &__duration {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  &__songs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+  }
+  &__song {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__song-name {
+    text-wrap: nowrap;
+  }
+  &__line {
+    width: 100%;
+    height: 2px;
+    margin: 0 10px;
+    filter: opacity(0.4);
+    background-color: $typography-invert;
+  }
+  &__call {
+    position: absolute;
+    top: 740px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+  &__info {
+    position: absolute;
+    z-index: 1;
+    bottom: 48px;
+    right: -144px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: 600;
+    
+    &-horizon,
+    &-vertical{
+      position: absolute;
+      font-family: $font-secondary;
+      font-weight: 600;
+      font-style: italic;
+      filter: opacity(0.6);
+    }
+    &-horizon {
+      top: 50%;
+      left:64px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 128px);
+      animation: discHorizontal 14s linear 0s infinite;
+      font-size: 20px;
+    }
+    &-vertical {
+      top: 86px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100% - 172px);
+      animation: discVertical 14s linear 0s infinite;
+    }
+    &-top {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      font-style: normal;
+
+      span:nth-child(2) {
+        font-size: 18px;
+      }
+    }
+    &-song-name {
+      font-size: 22px;
+    }
+    
+    span {
+      filter: opacity(0.76);
+    }
+    img {
+      // width: 168px;
+      width: 214px;
+      padding-bottom: 16px;
+    }
+  }
+  &__btn {
+    padding-bottom: 4px;
+    border-bottom: 2px solid;
+    color: $typography-invert;
+    text-transform: uppercase;
+    font-size: 34px;
+    font-weight: 800;
+
+    &-close {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      padding: 18px;
+      border: 1px solid $theme-border;
+      border-radius: 50%;
+
+      &:hover {
+        .icon {
+          transform: rotate(-90deg) scale(0.9);
+        }
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        @include transition;
+        transition-duration: 0.4s;
+        color: $typography-invert;
+      }
+    }
+    span {
+      display: block;
+      @include font-transform;
+    }
+  }
+  &__disk {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 80px));
+    width: 670px;
+    height: 670px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      border: 1px solid $theme-border;
+      border-radius: 50%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 188px;
+      height: 188px;
+      border: 1px solid $theme-border;
+      border-radius: 50%;
+    }
+
+    .album__btn {
+      display: none;
+      position: absolute;
+      bottom: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1480px;
+    height: 882px;
+    border: 1px solid $theme-border;
+  }
+}
