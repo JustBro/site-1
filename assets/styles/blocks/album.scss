@@ -11,8 +11,9 @@
   }
   &__title {
     position: absolute;
-    top: 190px;
-    left: -2px;
+    z-index: 1;
+    top: 172px;
+    left: 170px;
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
@@ -21,6 +22,18 @@
     font-weight: 800;
     letter-spacing: -2px;
     @include font-transform;
+    @include transition;
+    transition-duration: 0.7s;
+
+    span:nth-child(1) {
+      position: relative;
+      left: 0;
+      transform: translateX(0);
+      width: min-content;
+      text-wrap: nowrap;
+      @include transition;
+      transition-duration: 0.7s;
+    }
   }
   &__list {
     position: absolute;
@@ -66,21 +79,15 @@
     flex-direction: column;
     align-items: start;
     gap: 10px;
+
+    .album__btn {
+      overflow: hidden;
+      height: 48px;
+    }
   }
   &__info {
-    position: absolute;
-    z-index: 1;
-    bottom: 48px;
-    right: -144px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-family: $font-secondary;
-    font-size: 16px;
-    font-weight: 600;
-    
     &-horizon,
-    &-vertical{
+    &-vertical {
       position: absolute;
       font-family: $font-secondary;
       font-weight: 600;
@@ -89,23 +96,25 @@
     }
     &-horizon {
       top: 50%;
-      left:64px;
-      transform: translateY(-50%);
+      left: 64px;
+      transform: translateY(-50%) rotate(0);
       display: flex;
       justify-content: space-between;
       width: calc(100% - 128px);
-      animation: discHorizontal 14s linear 0s infinite;
       font-size: 20px;
     }
     &-vertical {
       top: 86px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) rotate(0);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: calc(100% - 172px);
-      animation: discVertical 14s linear 0s infinite;
+
+      span {
+        @include transition;
+      }
     }
     &-top {
       display: flex;
@@ -117,17 +126,39 @@
         font-size: 18px;
       }
     }
-    &-song-name {
-      font-size: 22px;
-    }
-    
+
     span {
       filter: opacity(0.76);
     }
-    img {
-      // width: 168px;
-      width: 214px;
-      padding-bottom: 16px;
+  }
+  &__img {
+    position: absolute;
+    z-index: 1;
+    top: 320px;
+    left: 600px;
+    width: 214px;
+    @include transition;
+    transition-duration: 0.6s;
+  }
+  &__current-song {
+    position: absolute;
+    top: 770px;
+    left: 1226px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: 600;
+
+    &-name {
+      font-size: 22px;
+    }
+    span {
+      overflow: hidden;
+      height: 28px;
+      @include transition;
+      transition-duration: 0.6s;
     }
   }
   &__btn {
@@ -137,22 +168,30 @@
     text-transform: uppercase;
     font-size: 34px;
     font-weight: 800;
+    transition-duration: 0.6s;
 
     &-close {
       position: absolute;
       top: 0px;
       right: 0px;
-      padding: 18px;
+      width: 78px;
+      height: 78px;
       border: 1px solid $theme-border;
       border-radius: 50%;
+      @include transition;
+      transition-duration: 0.4s;
 
       &:hover {
         .icon {
-          transform: rotate(-90deg) scale(0.9);
+          transform: translate(-50%, -50%) rotate(-90deg) scale(0.9);
         }
       }
 
       .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 60px;
         height: 60px;
         @include transition;
@@ -170,17 +209,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, calc(-50% + 80px));
-    width: 670px;
-    height: 670px;
+    width: 654px;
+    height: 654px;
+    border: 1px solid $theme-border;
+    border-radius: 50%;
 
     &::before {
       content: "";
       position: absolute;
-      top: 8px;
-      left: 8px;
-      width: calc(100% - 16px);
-      height: calc(100% - 16px);
-      border: 1px solid $theme-border;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background-color: $theme-border;
       border-radius: 50%;
     }
     &::after {
@@ -196,11 +238,17 @@
     }
 
     .album__btn {
-      display: none;
       position: absolute;
       bottom: 18%;
       left: 50%;
       transform: translateX(-50%);
+      overflow: hidden;
+      height: 0;
+      padding: 0;
+      filter: opacity(0);
+      border-width: 0;
+      @include transition;
+      transition-duration: 0.6s;
     }
   }
   &__border {
@@ -210,5 +258,82 @@
     width: 1480px;
     height: 882px;
     border: 1px solid $theme-border;
+    @include transition;
+    transition-duration: 0.6s;
+  }
+  &.hide {
+    .album {
+      &__title {
+        left: 50%;
+        transform: translateX(-50%) scaleY($font-scale);
+
+        span:nth-child(1) {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      &__call {
+        .album__btn {
+          height: 0;
+          padding: 0;
+          filter: opacity(0);
+          border-width: 0;
+        }
+      }
+      &__info {
+        &-vertical {
+          animation: unset;
+
+          span {
+            filter: opacity(0);
+          }
+        }
+        &-horizon {
+          animation: none;
+        }
+
+        span {
+          display: none;
+        }
+      }
+      &__img {
+        top: 242px;
+        left: 242px;
+        width: 168px;
+      }
+      &__current-song {
+        span {
+          height: 0;
+          filter: opacity(0);
+        }
+      }
+      &__btn {
+        &-close {
+          top: 40px;
+          right: 40px;
+          width: 0;
+          height: 0;
+          filter: opacity(0);
+
+          .icon {
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+      &__disk {
+        .album__btn {
+          height: 48px;
+          filter: opacity(1);
+          border-width: 2px;
+        }
+      }
+      &__border {
+        top: 204px;
+        left: 610px;
+        width: 682px;
+        height: 682px;
+      }
+    }
   }
 }

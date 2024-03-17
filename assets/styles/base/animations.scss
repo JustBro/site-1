@@ -63,20 +63,20 @@
   }
 }
 
-@keyframes discVertical {
-  0% {
-    transform: translateX(-50%) rotate(0deg);
-  }
-  100% {
-    transform: translateX(-50%) rotate(360deg);
-  }
+.album-list-enter-active {
+  animation: albumList 0.6s;
+}
+.album-list-leave-active {
+  animation: albumList 0.5s reverse;
 }
 
-@keyframes discHorizontal {
+@keyframes albumList {
   0% {
-    transform: translateY(-50%) rotate(0deg);
+    top: 420px;
+    filter: opacity(0);
   }
   100% {
-    transform: translateY(-50%) rotate(360deg);
+    top: 380px;
+    filter: opacity(0.76);
   }
 }

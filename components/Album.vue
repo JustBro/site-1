@@ -1,45 +1,47 @@
 <template>
-  <section class="album">
+  <section class="album" :class="{ hide: !show }">
     <div class="album__border"></div>
+    <h2 class="album__title">
+      <span>thank God we</span>
+      <span>left the garden</span>
+    </h2>
     <div class="album__disk">
-      <button class="album__btn-close">
+      <button class="album__btn-close" @click="hideAll">
         <i class="icon icon--close"></i>
       </button>
-      <div class="album__info-horizon">
+      <div class="album__info-horizon" :style="horizonStyle">
         <span>LP</span>
         <span>2023</span>
       </div>
-      <div class="album__info-vertical">
+      <div class="album__info-vertical" :style="verticalStyle">
         <div class="album__info-top">
           <span>Recorded in</span>
           <span>Portland, OR, US</span>
         </div>
         <span>© 2023 Jeffrey Martin</span>
       </div>
-      <button class="album__btn">
+      <button class="album__btn" @click="showAll">
         <span>discover</span>
       </button>
-      <div class="album__info">
-        <img src="../assets/images/album-1.jpg" alt="Album image" />
-        <span>Currently playing</span>
-        <span class="album__info-song-name">Red Station Wagon</span>
-      </div>
+      <img
+        class="album__img"
+        src="../assets/images/album-1.jpg"
+        alt="Album image"
+      />
     </div>
     <div class="album__wrapper">
-      <h2 class="album__title">
-        <span>thank God we</span>
-        <span>left the garden</span>
-      </h2>
-      <div class="album__list">
-        <span class="album__duration">38:34</span>
-        <ul class="album__songs">
-          <li class="album__song" v-for="song in songs" :key="song.name">
-            <span class="album__song-name">{{ song.name }}</span>
-            <div class="album__line"></div>
-            <span>{{ song.duration }}</span>
-          </li>
-        </ul>
-      </div>
+      <transition name="album-list">
+        <div v-if="show" class="album__list">
+          <span class="album__duration">38:34</span>
+          <ul class="album__songs">
+            <li class="album__song" v-for="song in songs" :key="song.name">
+              <span class="album__song-name">{{ song.name }}</span>
+              <div class="album__line"></div>
+              <span>{{ song.duration }}</span>
+            </li>
+          </ul>
+        </div>
+      </transition>
       <div class="album__call">
         <button class="album__btn">
           <span>bye now</span>
@@ -49,6 +51,14 @@
         </button>
       </div>
     </div>
+    <div class="album__current-song">
+      <span>
+        Currently playing
+      </span>
+      <span class="album__current-song-name">
+        Red Station Wagon
+      </span>
+    </div>
   </section>
 </template>
 
@@ -56,6 +66,7 @@
 export default {
   data() {
     return {
+      show: false,
       songs: [
         {
           name: "Lost Dog",
@@ -102,7 +113,40 @@ export default {
           duration: "03:39",
         },
       ],
+      animationId: null,
+      deg: 0,
+      horizonStyle: "transform: translateY(-50%) ",
+      verticalStyle: "transform: translateX(-50%) ",
     };
+  },
+  methods: {
+    showAll() {
+      this.show = true;
+      this.rotateDisk();
+    },
+    hideAll() {
+      this.show = false;
+      this.stopDisk();
+    },
+    rotateDisk() {
+      const vm = this;
+
+      vm.deg = vm.deg === 359 ? 0 : vm.deg + 0.5;
+
+      vm.verticalStyle = `transform: translateX(-50%) rotate(${vm.deg}deg)`;
+      vm.horizonStyle = `transform: translateY(-50%) rotate(${vm.deg}deg)`;
+
+      vm.animationId = requestAnimationFrame(vm.rotateDisk);
+    },
+    stopDisk() {
+      const vm = this;
+
+      cancelAnimationFrame(vm.animationId);
+
+      vm.deg = 0;
+      vm.verticalStyle = `transform: translateX(-50%) rotate(0deg); transition: all 0.6s ease-in-out 0s;`;
+      vm.horizonStyle = `transform: translateY(-50%) rotate(0deg); transition: all 0.6s ease-in-out 0s;`;
+    }
   },
 };
 </script>

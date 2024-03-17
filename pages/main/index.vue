@@ -5,7 +5,6 @@
     <Show @showUpcoming="showUpcoming" />
     <Upcoming />
     <Album />
-    <div class="space"></div>
   </main>
 </template>
 
@@ -37,10 +36,4 @@ export default {
 
 <style lang="scss">
 @import "~/assets/styles/pages/main";
-.space {
-  position: relative;
-  z-index: 1;
-  height: 300vh;
-  background-color: $bg-black;
-}
 </style>
