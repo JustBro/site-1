@@ -13,6 +13,10 @@
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 
+  &--arrow {
+    mask-image: url(~assets/images/svg/arrow.svg);
+    -webkit-mask-image: url(~assets/images/svg/arrow.svg);
+  }
   &--close {
     mask-image: url(~assets/images/svg/close.svg);
     -webkit-mask-image: url(~assets/images/svg/close.svg);

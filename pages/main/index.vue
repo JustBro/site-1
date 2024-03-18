@@ -5,6 +5,7 @@
     <Show @showUpcoming="showUpcoming" />
     <Upcoming />
     <Album />
+    <Quotes />
   </main>
 </template>
 
@@ -14,6 +15,7 @@ import Quote from "@/components/Quote";
 import Show from "@/components/Show";
 import Upcoming from "@/components/Upcoming";
 import Album from "@/components/Album";
+import Quotes from "@/components/Quotes";
 
 export default {
   components: {
@@ -22,6 +24,7 @@ export default {
     Show,
     Upcoming,
     Album,
+    Quotes,
   },
   methods: {
     showUpcoming() {

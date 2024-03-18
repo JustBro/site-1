@@ -80,3 +80,12 @@
     filter: opacity(0.76);
   }
 }
+
+@keyframes quotesColumn {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(-10%);
+  }
+}
