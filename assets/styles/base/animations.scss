@@ -89,3 +89,12 @@
     transform: translateY(-10%);
   }
 }
+
+@keyframes quotesAfter {
+  0% {
+    transform: translateY(230%);
+  }
+  100% {
+    transform: translateY(-16%);
+  }
+}

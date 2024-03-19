@@ -6,6 +6,9 @@
     <Upcoming />
     <Album />
     <Quotes />
+    <Quote />
+    <Quote />
+    <Quote />
   </main>
 </template>
 
@@ -30,9 +33,15 @@ export default {
     showUpcoming() {
       const upcoming = document.querySelector(".upcoming");
       upcoming.setAttribute("style", "height:" + upcoming.scrollHeight + "px;");
-      upcoming.scrollIntoView({ behavior: 'smooth' });
+      upcoming.scrollIntoView({ behavior: "smooth" });
       this.isUpcoming = true;
     },
+    initLightScroll() {
+      
+    },
+  },
+  mounted() {
+    this.initLightScroll();
   },
 };
 </script>
