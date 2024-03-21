@@ -9,7 +9,6 @@
     <Videos />
     <Quote />
     <Quote />
-    <Quote />
   </main>
 </template>
 

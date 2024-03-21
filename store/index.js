@@ -15,7 +15,7 @@ export const mutations = {
 
 // this.$store.getters.getUpcomingState
 export const getters = {
-  getUpcomingState(store) {
+  getHeaderState(store) {
     return store.showHeader;
   },
   getUpcomingState(store) {

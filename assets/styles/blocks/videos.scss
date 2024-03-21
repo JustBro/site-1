@@ -1,0 +1,55 @@
+.videos {
+  &__wrapper {
+    display: flex;
+    gap: 32px;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+  &__cell {
+    margin: 38px;
+    padding: 12px;
+    border: 1px solid $theme-border;
+  }
+  &__top {
+  }
+  &__video {
+    width: 100%;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-style: italic;
+
+    &--top {
+      padding-top: 6px;
+
+      span:nth-child(1) {
+        font-style: normal;
+      }
+    }
+    &--bottom {
+      margin-top: 96px;
+
+      .icon {
+        width: 12px;
+        height: 20px;
+        color: $btn-text-normal;
+      }
+    }
+  }
+  &__play {
+  }
+  &__watch {
+    display: none;
+  }
+  &__letter {
+  }
+}

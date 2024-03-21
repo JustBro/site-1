@@ -1,5 +1,10 @@
 <template>
-  <section ref="upcoming" class="upcoming" :style="'height: ' + height + 'px;'" :class="{'upcoming--hide': !showUpcoming}">
+  <section
+    ref="upcoming"
+    class="upcoming"
+    :class="{ 'upcoming--hide': !showUpcoming }"
+    :style="'height: ' + height + 'px;'"
+  >
     <h2 class="upcoming__title">UPCOMING SHOWS</h2>
     <ul class="upcoming__shows">
       <ShowsItem v-for="show in shows" :key="show.name" :show="show" />
@@ -115,7 +120,6 @@ export default {
   watch: {
     "$store.state.expandUpcoming"(newValue) {
       if (newValue) this.height = this.$refs.upcoming.scrollHeight;
-      this.showBtn = newValue;
       this.showUpcoming = newValue;
     },
   },
@@ -124,8 +128,6 @@ export default {
   },
   methods: {
     canShow() {
-      if (!this.$refs.upcoming) return;
-
       const high =
         this.$refs.upcoming.getBoundingClientRect().y <
         window.innerHeight * 0.2;
