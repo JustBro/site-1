@@ -12,31 +12,32 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isUpcomingOpen: false,
+    };
+  },
   props: {
     show: {
       type: Object,
       default: {},
     },
   },
-  methods: {
-    viewportTracking(el, changeEl = el, percent, className) {
-      return () => {
-        const positionY = el.getBoundingClientRect().y;
-        const classList = changeEl.classList;
-        const viewportHeight = window.innerHeight;
-        const positionInViewport = (1 - positionY / viewportHeight) * 100;
-
-        if (positionInViewport > percent && !classList.contains(className)) {
-          classList.add(className);
-        } else if (
-          positionInViewport < percent &&
-          classList.contains(className)
-        ) {
-          classList.remove(className);
-        }
-      };
+  watch: {
+    "$store.state.expandUpcoming"(newValue) {
+      if (newValue) {
+        this.isUpcomingOpen = newValue;
+      } else {
+        setTimeout(() => {
+          this.isUpcomingOpen = newValue;
+        }, 1000);
+      }
     },
+  },
+  methods: {
     animate() {
+      if (!this.isUpcomingOpen) return;
+
       window.requestAnimationFrame(() => {
         const el = this.$refs.item;
         const positionY = el.getBoundingClientRect().y;

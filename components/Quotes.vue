@@ -1,7 +1,7 @@
 <template>
   <section class="quotes">
-    <ul class="quotes__column" v-for="qoutesList in quotes" :key="qoutesList">
-      <li class="quotes__quote" v-for="qoute in qoutesList" :key="quote">
+    <ul class="quotes__column" v-for="qoutesList in quotes" :key="qoutesList[0].text">
+      <li class="quotes__quote" v-for="qoute in qoutesList" :key="qoute.author">
         <p class="quotes__text">{{ qoute.text }}</p>
         <div class="quotes__author-wrapper">
           <span class="quotes__author">{{ qoute.author }}</span>

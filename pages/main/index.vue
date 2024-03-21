@@ -2,10 +2,11 @@
   <main class="main">
     <Hero />
     <Quote />
-    <Show @showUpcoming="showUpcoming" />
+    <Show />
     <Upcoming />
     <Album />
     <Quotes />
+    <Videos />
     <Quote />
     <Quote />
     <Quote />
@@ -19,6 +20,7 @@ import Show from "@/components/Show";
 import Upcoming from "@/components/Upcoming";
 import Album from "@/components/Album";
 import Quotes from "@/components/Quotes";
+import Videos from "@/components/Videos";
 
 export default {
   components: {
@@ -28,20 +30,7 @@ export default {
     Upcoming,
     Album,
     Quotes,
-  },
-  methods: {
-    showUpcoming() {
-      const upcoming = document.querySelector(".upcoming");
-      upcoming.setAttribute("style", "height:" + upcoming.scrollHeight + "px;");
-      upcoming.scrollIntoView({ behavior: "smooth" });
-      this.isUpcoming = true;
-    },
-    initLightScroll() {
-      
-    },
-  },
-  mounted() {
-    this.initLightScroll();
+    Videos,
   },
 };
 </script>

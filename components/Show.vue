@@ -10,7 +10,7 @@
         <span>Purple Fiddle</span>
       </div>
       <div ref="line" class="show__line"></div>
-      <button class="show__btn" @click="$emit('showUpcoming')">view all dates</button>
+      <button class="show__btn" @click="showUpcoming">view all dates</button>
     </div>
   </section>
 </template>
@@ -19,6 +19,12 @@
 import { viewportTracking } from "@/assets/scripts/myLib";
 
 export default {
+  methods: {
+    showUpcoming() {
+      this.$store.commit("setUpcomingState", true);
+      document.querySelector(".upcoming").scrollIntoView({ behavior: "smooth" });
+    }
+  },
   mounted() {
     document.addEventListener(
       "scroll",
