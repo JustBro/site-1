@@ -11,9 +11,12 @@
     flex-direction: column;
   }
   &__cell {
+    position: relative;
+    z-index: 3;
     margin: 38px;
     padding: 12px;
     border: 1px solid $theme-border;
+    background-color: $bg-primary;
   }
   &__top {
   }
