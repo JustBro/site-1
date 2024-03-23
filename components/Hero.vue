@@ -1,6 +1,6 @@
 <template>
   <section ref="hero" class="hero">
-    <img class="hero__img" src="../assets/images/img.jpg" alt="" />
+    <img class="hero__img" src="../assets/images/hero.jpg" alt="" />
     <h1 class="hero__name">
       <div class="hero__word">
         <span
