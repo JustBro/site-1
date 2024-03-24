@@ -1,4 +1,8 @@
 .videos {
+  position: relative;
+  z-index: 1;
+  background-color: $bg-primary;
+
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -21,15 +25,22 @@
 
     &:hover {
       .videos {
-        &__play {
-          .icon {
-            filter: opacity(0);
+        &__row {
+          &--bottom {
+            .icon {
+              filter: opacity(0);
+              transition-delay: 0s;
+            }
           }
         }
         &__video-wrapper {
           .icon {
             transform: translate(-50%, -50%) scale(1);
           }
+        }
+        &__letter {
+          bottom: 0;
+          filter: opacity(1);
         }
       }
     }
@@ -66,26 +77,51 @@
       }
     }
     &--bottom {
+      position: relative;
       margin-top: 96px;
 
       .icon {
+        position: absolute;
+        right: 0;
+        bottom: 0;
         width: 12px;
         height: 20px;
         color: $btn-text-normal;
+        transition-delay: 0.4s;
       }
     }
   }
-  &__play {
-    @include transition;
-  }
   &__watch {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
     display: flex;
+    overflow: hidden;
     font-family: $font-primary;
     font-size: 40px;
     font-style: normal;
     font-weight: 800;
+    line-height: 30px;
     @include font-transform;
   }
   &__letter {
+    position: relative;
+    bottom: -30px;
+    filter: opacity(0);
+    @include transition;
+    transition-timing-function: cubic-bezier(0.56, 0.2, 0.4, 1.05);
+
+    &:nth-child(2) {
+      transition-delay: 0.05s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.1s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.15s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.2s;
+    }
   }
 }

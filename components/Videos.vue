@@ -21,15 +21,13 @@
           </div>
           <div class="videos__row videos__row--bottom">
             <span> {{ videoInfo.type }} </span>
-            <div class="videos__play">
-              <i class="icon icon--play"></i>
-              <div class="videos__watch">
-                <span class="videos__letter">W</span>
-                <span class="videos__letter">A</span>
-                <span class="videos__letter">T</span>
-                <span class="videos__letter">C</span>
-                <span class="videos__letter">H</span>
-              </div>
+            <i class="icon icon--play"></i>
+            <div class="videos__watch">
+              <span class="videos__letter">W</span>
+              <span class="videos__letter">A</span>
+              <span class="videos__letter">T</span>
+              <span class="videos__letter">C</span>
+              <span class="videos__letter">H</span>
             </div>
           </div>
         </div>
