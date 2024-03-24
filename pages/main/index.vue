@@ -7,6 +7,7 @@
     <Album />
     <Quotes />
     <Videos />
+    <Story />
     <Quote />
     <Quote />
   </main>
@@ -20,6 +21,7 @@ import Upcoming from "@/components/Upcoming";
 import Album from "@/components/Album";
 import Quotes from "@/components/Quotes";
 import Videos from "@/components/Videos";
+import Story from "@/components/Story";
 
 export default {
   components: {
@@ -30,6 +32,7 @@ export default {
     Album,
     Quotes,
     Videos,
+    Story,
   },
 };
 </script>

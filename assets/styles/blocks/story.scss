@@ -1,0 +1,47 @@
+.story {
+  display: flex;
+  view-timeline: --story block -100% -36%;
+
+  &__side {
+    width: 50%;
+
+    &--hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 32px;
+      padding-top: 350px;
+    }
+    &--bg {
+      transform: translateY(0%);
+      overflow: hidden;
+      animation-timeline: --story;
+      animation-name: storyBg;
+
+      &.fix {
+        position: fixed;
+        right: 0;
+        top: 0px;
+      }
+    }
+  }
+  &__img {
+    position: absolute;
+    width: 100%;
+    max-width: 670px;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 670px;
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 28px;
+  }
+  &__bg-img {
+    animation-timeline: --story;
+    animation-name: storyBgImg;
+  }
+}

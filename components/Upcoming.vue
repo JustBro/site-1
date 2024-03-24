@@ -13,7 +13,7 @@
       ref="btn"
       @click="close"
       class="upcoming__btn"
-      :class="{ expand: showBtn }"
+      :class="btnStyle"
     >
       HIDE DATES
     </button>
@@ -27,9 +27,11 @@ export default {
   data() {
     return {
       showUpcoming: false,
+      btnStyle: "",
       showBtn: false,
+      fixBtn: false,
+      hideBtn: false,
       height: 0,
-      fix: false,
       shows: [
         {
           name: "THOMAS, WV",
@@ -128,27 +130,35 @@ export default {
   },
   methods: {
     canShow() {
+      const vm = this;
+
+      if (!vm.$refs.upcoming) return;
+
       const high =
-        this.$refs.upcoming.getBoundingClientRect().y <
+        vm.$refs.upcoming.getBoundingClientRect().y <
         window.innerHeight * 0.2;
 
-      if (high && !this.showBtn) {
-        this.showBtn = true;
-      } else if (!high && this.showBtn) {
-        this.showBtn = false;
+      if (high && !vm.showBtn) {
+        vm.showBtn = true;
+        vm.btnStyle += " expand";
+      } else if (!high && vm.showBtn) {
+        vm.showBtn = false;
+        vm.btnStyle = vm.btnStyle.replace(" expand", "");
       }
     },
     canFix() {
-      if (!this.$refs.upcoming) return;
+      const vm = this;
 
-      const rect = this.$refs.upcoming.getBoundingClientRect();
+      if (!vm.$refs.upcoming) return;
 
-      if (window.innerHeight >= rect.height + rect.y && !this.fix) {
-        this.fix = true;
-        this.$refs.btn.classList.add("fix");
-      } else if (!(window.innerHeight >= rect.height + rect.y) && this.fix) {
-        this.fix = false;
-        this.$refs.btn.classList.remove("fix");
+      const rect = vm.$refs.upcoming.getBoundingClientRect();
+
+      if (window.innerHeight - 100 >= rect.height + rect.y && !vm.fixBtn) {
+        vm.fixBtn = true;
+        vm.btnStyle += " fix";
+      } else if (!(window.innerHeight - 100 >= rect.height + rect.y) && vm.fixBtn) {
+        vm.fixBtn = false;
+        vm.btnStyle = vm.btnStyle.replace(" fix", "");
       }
     },
     close() {
